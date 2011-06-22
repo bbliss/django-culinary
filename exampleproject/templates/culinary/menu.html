@@ -1,0 +1,13 @@
+<html>
+<head><title>django-culinary</title></head>
+<body>
+{% for category in categories %}
+<h3>{{ category.title }}</h3>
+<ul>
+    {% for item in category.menu_items %}
+    <li>{{ item.title }} - {{ item.price }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}
+</body>
+</html>
