@@ -43,11 +43,11 @@ class Special(models.Model):
         ('sat', 'Saturday'),
         ('sun', 'Sunday'),
     ])
-    after_time=models.TimeField(blank=True)
-    until_time=models.TimeField(blank=True)
+    after_time=models.TimeField(blank=True, null=True)
+    until_time=models.TimeField(blank=True, null=True)
     
-    after_date=models.DateField(blank=True)
-    until_date=models.DateField(blank=True)
+    after_date=models.DateField(blank=True, null=True)
+    until_date=models.DateField(blank=True, null=True)
     
     def __unicode__(self):
-        return "Special for " + self.menu_item
+        return "Special for " + self.menu_item.title

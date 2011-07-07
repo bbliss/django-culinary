@@ -1,13 +1,25 @@
 <html>
 <head><title>django-culinary</title></head>
 <body>
+
+<h1 id="menu-title">django-culinary example menu</h1>
+
 {% for category in categories %}
-<h3>{{ category.title }}</h3>
-<ul>
+<h2 class="menu-category-title">{{ category.title }}</h2>
+<p class="menu-category-description">{{ category.description }}</p>
+
+<ul id="menu-item-list">
+    {% if category.menu_items %}
     {% for item in category.menu_items %}
-    <li>{{ item.title }} - {{ item.price }}</li>
+    <li class="menu-item">
+        <h3 class="menu-item-title">{{ item.title }} </h3>
+        <p class="menu-item-description">{{ item.description }}</p>
+      <span class="menu-item-price">{{ item.price }}</span>
+    </li>
     {% endfor %}
+    {% endif %}
 </ul>
 {% endfor %}
+
 </body>
 </html>
