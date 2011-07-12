@@ -1,6 +1,12 @@
 from django.db import models
+from django.contrib.sites.models import Site
+
+class Menu(models.Model):
+    title = models.CharField(max_length=100)
 
 class MenuCategory(models.Model):
+    menu = models.ForeignKey(Menu)
+    
     title=models.CharField(max_length=100)
     slug=models.SlugField(max_length=100)
     description=models.TextField(blank=True)
