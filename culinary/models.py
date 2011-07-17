@@ -3,6 +3,10 @@ from django.contrib.sites.models import Site
 
 class Menu(models.Model):
     title = models.CharField(max_length=100)
+    
+    @property
+    def categories(self):
+        return MenuCategory.objects.filter(menu=self)
 
 class MenuCategory(models.Model):
     menu = models.ForeignKey(Menu)
