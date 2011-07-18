@@ -7,6 +7,9 @@ class Menu(models.Model):
     @property
     def categories(self):
         return MenuCategory.objects.filter(menu=self)
+        
+    def __unicode__(self):
+        return self.title
 
 class MenuCategory(models.Model):
     menu = models.ForeignKey(Menu)
